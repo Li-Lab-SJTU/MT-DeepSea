@@ -1,4 +1,3 @@
-06.tpm.py
 # MT-DeepSea
 MT-DeepSea: an optimized strategy for deep-sea metatranscriptomic analysis
 ## Dependencies
