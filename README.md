@@ -2,7 +2,7 @@
 MT-DeepSea: an optimized strategy for deep-sea metatranscriptomic analysis
 ## Dependencies
 - Python >3.6
-- Nextflow 22.10.4.5836
+- Nextflow >22.10
 - Trimmomatic 0.39
 - Fastqc 0.11.9
 - BBMap 38.87
