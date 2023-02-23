@@ -16,6 +16,8 @@ Please execute the following command in your terminal to clone the metatranscrip
 ```shell
 git clone https://github.com/Li-Lab-SJTU/MT-DeepSea.git
 ```
+For the index of Deep-rRNA,please refer to project OEP003879 in the National Omics Data Encyclopedia repository (NODE)
+
 ## Input description 
 The input data should contain the following parts:
 Input  | Description
