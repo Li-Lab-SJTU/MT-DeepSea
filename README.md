@@ -12,7 +12,7 @@ MT-DeepSea: an optimized strategy for deep-sea metatranscriptomic analysis
 - Kraken2 2.1.2
 
 ##  Installation
-Please execute the following command in your terminal to clone the metatranscriptome repository to your own machine. 
+Please execute the following command in your terminal to clone the metatranscriptome repository to your own machine:
 ```shell
 git clone https://github.com/Li-Lab-SJTU/MT-DeepSea.git
 ```
