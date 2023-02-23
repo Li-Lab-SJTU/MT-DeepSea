@@ -22,7 +22,6 @@ Input  | Description
 ------------- | -------------
 metatranscriptomics | reads[1\|2].fastq.gz
 rRNA database index  | bowtie2 index for rRNA database
-trimmomatic | the absolute path of trimmomatic.jar
 adapter | the adapter sequences used for filtration
 kraken2 database | database built by kraken2 for taxonomy analysis
 reference genome sequence | .fasta
@@ -31,7 +30,7 @@ reference genome annotation | .gtf
 ## Implementation
 You can implement the code as following:
 ```shell
-nextflow run MT-DeepSea.nf --stdin1 <reads1.fastq.gz> --stdin2 <reads2.fastq.gz> --rrna_db <rrnadb_index/rrna_db> --trimmomatic <path/to/trimmomatic.jar> --adapter <adapter.fa> --kraken2_db <kraken2_db> --ref <genome.fasta> --gtf <genome.gtf> <Options> 
+nextflow run MT-DeepSea.nf --stdin1 <reads1.fastq.gz> --stdin2 <reads2.fastq.gz> --rrna_db <rrnadb_index/rrna_db> --adapter <adapter.fa> --kraken2_db <kraken2_db> --ref <genome.fasta> --gtf <genome.gtf> <Options> 
 ```
 **Note:** This step will take about **two hours**. The input data should be stored in the `data` folder. The output results will be stored in the folder named `results` by default.
 
