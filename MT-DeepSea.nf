@@ -84,38 +84,38 @@ if (params.stdin1 == null && params.stdin2 == null && params.adapter == null && 
 //When the command line lacks the corresponding parameter, give the necessary warning
 def Warnings() {
     if (params.stdin1 == null) {
-	HelpMessage()
+        HelpMessage()
         println "\nError:\n     The standard input file 1 is not found, please specify it by adding the --stdin1 parameter in the command-line!\n"
         exit 0
     }
     if (params.stdin2 == null) {
         HelpMessage()
-	println "\nError:\n     The standard input file 2 is not found, please specify it by adding the --stdin2 parameter in the command-line!\n"
+        println "\nError:\n     The standard input file 2 is not found, please specify it by adding the --stdin2 parameter in the command-line!\n"
         exit 0
     }
     if (params.adapter == null) {
         HelpMessage()
-	println "\nError:\n     The adapter sequences are not found, please specify it by adding the --adapter parameter in the command-line!\n"
+        println "\nError:\n     The adapter sequences are not found, please specify it by adding the --adapter parameter in the command-line!\n"
         exit 0
     }
     if (params.rrna_db == null) {
         HelpMessage()
-	println "\nError:\n     The rRNA database is not found, please specify it by adding the --rrna_db parameter in the command-line!\n"
+        println "\nError:\n     The rRNA database is not found, please specify it by adding the --rrna_db parameter in the command-line!\n"
         exit 0
     }
     if (params.ref == null) {
         HelpMessage()
-	println "\nError:\n     The reference database is not found, please specify it by adding the --ref parameter in the command-line!\n"
+        println "\nError:\n     The reference database is not found, please specify it by adding the --ref parameter in the command-line!\n"
         exit 0
     }
     if (params.gtf == null) {
         HelpMessage()
-	println "\nError:\n     The GTF file is not found, please specify it by adding the --gtf parameter in the command-line!\n"
+        println "\nError:\n     The GTF file is not found, please specify it by adding the --gtf parameter in the command-line!\n"
         exit 0
     }
     if (params.kraken2_db == null) {
         HelpMessage()
-	println "\nError:\n     The database for kraken2 is not found, please specify it by adding the --kraken2_db parameter in the command-line!\n"
+        println "\nError:\n     The database for kraken2 is not found, please specify it by adding the --kraken2_db parameter in the command-line!\n"
         exit 0
     }
 }
@@ -138,22 +138,22 @@ def Makedirs() {
         outdir.mkdir()
     }
 
-    qc_outdir = file("${params.outdir}/01_trim_qc")
+    qc_outdir = file("${params.outdir}/01_readTrimming")
     qc_outdir.mkdir()
 
-    fastqc_outdir = file("${params.outdir}/02_fastqc_qe")
+    fastqc_outdir = file("${params.outdir}/02_qualityEvaluation")
     fastqc_outdir.mkdir()
     
-    rrnaRemove_outdir = file("${params.outdir}/03_bowtie2_rrnaRemove")
+    rrnaRemove_outdir = file("${params.outdir}/03_Deep-rRNA")
     rrnaRemove_outdir.mkdir()
     
-    readsMapping_outdir = file("${params.outdir}/04_bbmap_map")
+    readsMapping_outdir = file("${params.outdir}/04_readAlignment")
     readsMapping_outdir.mkdir()
     
-    featureCounts_outdir = file("${params.outdir}/05_featureCounts_tpm")
+    featureCounts_outdir = file("${params.outdir}/05_readSummarization")
     featureCounts_outdir.mkdir()
 
-    kraken2_outdir = file("${params.outdir}/06_kraken2")
+    kraken2_outdir = file("${params.outdir}/06_taxonomyAnnotation")
     kraken2_outdir.mkdir()
 }
 Makedirs()
@@ -203,7 +203,7 @@ trim_fq2.into{trim_fq2_01; trim_fq2_02}
 // quality evaluation of trimmed fastq file
 // tools: fastqc
 
-process qualityEvaluation {
+process qualityEvaluate {
 
     cache params.cache
     publishDir "$fastqc_outdir", mode: params.publish_mode
@@ -225,7 +225,7 @@ process qualityEvaluation {
 // rrna removal of trimmed meta-transcriptomics fastq file
 // tools: bowtie2
 
-process rrnaRemoval {
+process Deep-rRNA {
 
     cache params.cache
     publishDir "$rrnaRemove_outdir", mode: params.publish_mode
@@ -254,7 +254,7 @@ process rrnaRemoval {
 filter_fq1.into{filter_fq1_01; filter_fq1_02}
 filter_fq2.into{filter_fq2_01; filter_fq2_02}
 
-// read alignment
+// reads alignment
 // tools: script - bbmap.sh & samtools
 
 process readAlignment {
