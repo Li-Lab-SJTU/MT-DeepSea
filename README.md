@@ -41,4 +41,4 @@ nextflow run MT-DeepSea.nf --stdin1 <reads1.fastq.gz> --stdin2 <reads2.fastq.gz>
 |--sample|Specify the prefix of output files. Default: the prefix of the name of stdin1 (exclude suffix).|
 |--outdir|Specify an output folder. Default: the results folder in the current path where the command is executed.|
 |--thread| Set the thread. Default: 40.|
-|--help|Print this help message.|
+|--help|Print the help message.|
