@@ -23,7 +23,7 @@ The input data should contain the following parts:
 Input  | Description
 ------------- | -------------
 metatranscriptomics | reads[1\|2].fastq.gz
-rRNA database index  | bowtie2 index for rRNA database
+rRNA database index  | bowtie2 index for rRNA database (refer to OEP003879)
 adapter | the adapter sequences used for filtration
 kraken2 database | database built by kraken2 for taxonomy analysis
 reference genome sequence | .fasta
