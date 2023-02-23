@@ -169,9 +169,9 @@ Channel.fromPath(params.stdin2, checkIfExists: true)
        .set{stdin2}
 
 
-// quality control for raw squencing data. Tools: Trimmomatic
+// read trimming for raw squencing data. Tools: Trimmomatic
 
-process qualityControl {
+process readTrimming {
 
     cache params.cache
     publishDir "$qc_outdir", mode: params.publish_mode
@@ -196,14 +196,14 @@ process qualityControl {
     """
 }
 
-// copy quality-controlled fastq file into multiple channels
+// copy trimmed fastq file into multiple channels
 trim_fq1.into{trim_fq1_01; trim_fq1_02}
 trim_fq2.into{trim_fq2_01; trim_fq2_02}
 
-// quality evaluation of quality-controlled fastq file
+// quality evaluation of trimmed fastq file
 // tools: fastqc
 
-process qualityEvaluate {
+process qualityEvaluation {
 
     cache params.cache
     publishDir "$fastqc_outdir", mode: params.publish_mode
@@ -222,10 +222,10 @@ process qualityEvaluate {
     """
 }
 
-// rrna removal of quality-controlled meta-transcriptomics fastq file
+// rrna removal of trimmed meta-transcriptomics fastq file
 // tools: bowtie2
 
-process rrnaRemove {
+process rrnaRemoval {
 
     cache params.cache
     publishDir "$rrnaRemove_outdir", mode: params.publish_mode
@@ -250,14 +250,14 @@ process rrnaRemove {
     """
 }
 
-// copy quality-controlled and rrna-removed fastq file into multiple channels
+// copy trimmed and rrna-removed fastq file into multiple channels
 filter_fq1.into{filter_fq1_01; filter_fq1_02}
 filter_fq2.into{filter_fq2_01; filter_fq2_02}
 
-// reads mapping
+// read alignment
 // tools: script - bbmap.sh & samtools
 
-process readsMapping {
+process readAlignment {
 
     cache params.cache
     publishDir "$readsMapping_outdir", mode: params.publish_mode
@@ -284,7 +284,7 @@ process readsMapping {
 // calculate and obtain gene count matrix
 // tools: featureCounts
 
-process featureCounts {
+process readSummarization {
     
     cache params.cache
     publishDir "$featureCounts_outdir", mode: params.publish_mode
@@ -304,7 +304,7 @@ process featureCounts {
     """
 }
 
-process kraken2 {
+process taxonomyAnnotation {
 
     cache params.cache
     publishDir "$kraken2_outdir", mode: params.publish_mode
