@@ -32,7 +32,7 @@ You can implement the code as following:
 ```shell
 nextflow run MT-DeepSea.nf --stdin1 <reads1.fastq.gz> --stdin2 <reads2.fastq.gz> --rrna_db <rrnadb_index/rrna_db> --adapter <adapter.fa> --kraken2_db <kraken2_db> --ref <genome.fasta> --gtf <genome.gtf> <Options> 
 ```
-**Note:** The output results will be stored in the folder named `results` by default. MT-DeepSea will take about **five hours** for the 25G paired-end fastq.gz files. 
+**Note:** The output results will be stored in the folder named `results` by default. For your information, MT-DeepSea will take about **five hours** for the 25G paired-end fastq.gz files. 
 
 
 #### Options arguments
