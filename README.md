@@ -16,7 +16,7 @@ Please execute the following command in your terminal to clone the metatranscrip
 ```shell
 git clone https://github.com/Li-Lab-SJTU/MT-DeepSea.git
 ```
-For the database index of Deep-rRNA and/or the standard genome reference of MT-DeepSea mock communities, please refer to project OEP003879 in the National Omics Data Encyclopedia repository (NODE).
+For the database index of Deep-rRNA and/or the standard genome reference of MT-DeepSea mock communities, please refer to the analysis part of project OEP003879 in the National Omics Data Encyclopedia repository (NODE).
 
 ## Input description 
 The input data should contain the following parts:
