@@ -35,7 +35,7 @@ You can implement the code as following:
 ```shell
 nextflow run MT-DeepSea.nf --stdin1 <reads1.fastq.gz> --stdin2 <reads2.fastq.gz> --rrna_db <rrnadb_index/rrna_db> --adapter <adapter.fa> --kraken2_db <kraken2_db> --ref <genome.fasta> --gtf <genome.gtf> <Options> 
 ```
-**Note:** There are paired-end *.fq.gz files for testing in  `data/test`, containing 10,000 and 100,000 randomly selected reads sequences, respectively. Please input their **absolute paths** in --stdin1 --stdin2 if you want to use them. The output results will be stored in the folder named `results` by default. For your information, MT-DeepSea will take about **six hours** for the 25G paired-end fastq.gz files. 
+**Note:** There are paired-end *.fq.gz files for testing in  `data/test`, containing 10,000 and 100,000 randomly selected reads sequences, respectively. Please input their **absolute paths** in --stdin1 --stdin2 if you want to use them. The output results will be stored in the `results` folder by default. For your information, MT-DeepSea will take about **six hours** for the 25G paired-end fastq.gz files. 
 
 
 #### Options arguments
