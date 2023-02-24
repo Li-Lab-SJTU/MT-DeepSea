@@ -318,7 +318,6 @@ process taxonomyAnnotation {
 
     script:
     """
-    mkdir trim
     kraken2 --db $params.kraken2_db --output ${sample}_06_kraken2_nr.out --report ${sample}_06_kraken2_nr.report --paired --gzip-compressed $f1 $f2 --threads $params.thread
     """
 }
