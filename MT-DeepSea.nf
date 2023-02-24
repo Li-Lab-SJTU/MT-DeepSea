@@ -225,7 +225,7 @@ process qualityEvaluate {
 // rrna removal of trimmed meta-transcriptomics fastq file
 // tools: bowtie2
 
-process Deep-rRNA {
+process DeeprRNA {
 
     cache params.cache
     publishDir "$rrnaRemove_outdir", mode: params.publish_mode
