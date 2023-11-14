@@ -1,5 +1,5 @@
-# MT-DeepSea
-MT-DeepSea: an optimized strategy for deep-sea metatranscriptomic analysis
+# MT-Enviro
+MT-Enviro: an optimized strategy for deep-sea metatranscriptomic analysis
 ## Dependencies
 - Python >3.6
 - Nextflow >22.10
@@ -14,9 +14,9 @@ MT-DeepSea: an optimized strategy for deep-sea metatranscriptomic analysis
 ##  Installation
 Please execute the following command in your terminal to clone the metatranscriptome repository to your own machine:
 ```shell
-git clone https://github.com/Li-Lab-SJTU/MT-DeepSea.git
+git clone https://github.com/Li-Lab-SJTU/MT-Enviro.git
 ```
-For the database index of Deep-rRNA and/or the standard genome reference of MT-DeepSea mock communities, please refer to the analysis part of project OEP003879 in the National Omics Data Encyclopedia repository (NODE).
+For the database index of Deep-rRNA and/or the standard genome reference of MT-Enviro mock communities, please refer to the analysis part of project OEP003879 in the National Omics Data Encyclopedia repository (NODE).
 
 ## Input description 
 The input data should contain the following parts:
@@ -33,13 +33,13 @@ reference genome annotation | .gtf
 ## Implementation
 You can implement the code as following:
 ```shell
-nextflow run MT-DeepSea.nf \
+nextflow run MT-Enviro.nf \
 --stdin1 <reads1.fastq.gz> --stdin2 <reads2.fastq.gz> \
 --rrna_db <rrnadb_index/rrna_db> --adapter <adapter.fa> \
 --kraken2_db <kraken2_db> \
 --ref <genome.fasta> --gtf <genome.gtf> <Options> 
 ```
-**Note:** There are paired-end *.fq.gz files for testing in  `data/test`, containing 10,000 and 100,000 randomly selected reads sequences, respectively. Please input their **absolute paths** in --stdin1 --stdin2 if you want to use them. The output results will be stored in the `results` folder by default. For your information, MT-DeepSea will take about **six hours** for the 25G paired-end fastq.gz files. 
+**Note:** There are paired-end *.fq.gz files for testing in  `data/test`, containing 10,000 and 100,000 randomly selected reads sequences, respectively. Please input their **absolute paths** in --stdin1 --stdin2 if you want to use them. The output results will be stored in the `results` folder by default. For your information, MT-Enviro will take about **six hours** for the 25G paired-end fastq.gz files. 
 
 
 #### Options arguments
