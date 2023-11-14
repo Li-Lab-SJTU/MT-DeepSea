@@ -2,9 +2,9 @@
 
 /*
 =====================================================================================
-                                MT-DeepSea.nf                                      
+                                MT-Enviro.nf                                      
 =====================================================================================
-       An optimized strategy for deep-sea metatranscriptomic analysis                                     
+       An optimized strategy for environmental metatranscriptomic analysis                                     
 =====================================================================================
 */
 
@@ -18,11 +18,11 @@ if (params.help) {
 
 def HelpMessage() {
     log.info """
-MT-DeepSea by Weiyi Li (oliva630@sjtu.edu.cn)
-Please run the command: [ nextflow run MT-DeepSea.nf --help ] to print the help message.\n
+MT-Enviro by Weiyi Li (oliva630@sjtu.edu.cn)
+Please run the command: [ nextflow run MT-Enviro.nf --help ] to print the help message.\n
 Usage: 
     
-    nextflow run MT-DeepSea.nf --stdin1 <reads1.fastq.gz> --stdin2 <reads2.fastq.gz> --rrna_db <rrnadb_index/rrna_db> --adapter <adapter.fa> --kraken2_db <kraken2_db> --ref <genome.fasta> --gtf <genome.gtf> <Options>
+    nextflow run MT-Enviro.nf --stdin1 <reads1.fastq.gz> --stdin2 <reads2.fastq.gz> --rrna_db <rrnadb_index/rrna_db> --adapter <adapter.fa> --kraken2_db <kraken2_db> --ref <genome.fasta> --gtf <genome.gtf> <Options>
         
 Input:
 
